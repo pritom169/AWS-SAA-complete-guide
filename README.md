@@ -46,7 +46,7 @@ graph TD
     M --> G
 
     N[AWS Accounts can contain the impact of admin errors, or exploits by bad actors.]
-    O[Use separate accounts for separate things (DEV, TEST, PROD) or teams/products/clients]
+    O["Use separate accounts for separate things (DEV, TEST, PROD) or teams/products/clients"]
 
     style A fill:#fff,stroke:#333,stroke-width:2px
     style B fill:#f9f,stroke:#333,stroke-width:2px
