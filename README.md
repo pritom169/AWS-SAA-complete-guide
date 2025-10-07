@@ -81,32 +81,34 @@ This structure will serve as the foundation for the rest of the course.
 
 ```mermaid
 graph LR
-    subgraph You
-        A[You]
-    end
+    A[You]
 
-    subgraph AWS General (*MANAGEMENT)
+    subgraph "1. AWS General (MANAGEMENT)"
         direction LR
-        B(Account Root User) -- MFA Token --> C{Mobile Phone}
+        B(Account Root User)
         D[Budget]
         E[IAM]
         F(IAMADMIN)
         G[AWS]
+        C{Mobile Phone}
+
+        B -- MFA Token --> C
     end
 
-    subgraph AWS Production
+    subgraph "2. AWS Production"
         direction LR
-        H(Account Root User) -- MFA Token --> I{Mobile Phone}
+        H(Account Root User)
         J[Budget]
         K[IAM]
         L(IAMADMIN)
         M[AWS]
+        I{Mobile Phone}
+
+        H -- MFA Token --> I
     end
 
+    %% Connections from You to the General account
     A --> B
     A --> D
     A --> E
-
-    G -- "1" --> AWS General
-    M -- "2" --> AWS Production
 ```
