@@ -80,37 +80,26 @@ Once the setup is complete, the same process will be repeated to create a **Prod
 This structure will serve as the foundation for the rest of the course.
 
 ```mermaid
-graph LR
-    subgraph You
-        A[You] --> B(Create/Manage AWS Accounts)
+graph TD
+    subgraph AWS Organizations
+        A("Account 1: GENERAL (MANAGEMENT)")
+        B(Account 2: DEV)
+        C(Account 3: PROD)
     end
 
-    subgraph AWS Account 1: GENERAL (MANAGEMENT)
+    A -- "Manages Billing, Policies" --> B
+    A -- "Manages Billing, Policies" --> C
+
+    B -- "Contains DEV Resources (EC2, S3)" --> B_Res
+    C -- "Contains PROD Resources (EC2, S3)" --> C_Res
+
+    subgraph "DEV Account"
         direction LR
-        subgraph Root User
-            C1(AWS Root User) --> D1{MFA Device: 60943}
-            D1 --> E1(Smartphone App)
-        end
-        C1 --> F1(Budget: ฿ $)
-        C1 --> G1(Alarm)
-        H1(IAM)
-        H1 --> I1(IAMADMIN)
-        G1 --> J1{Locked}
+        B_Res(EC2, S3, RDS)
     end
 
-    subgraph AWS Account 2: PRODUCTION
+    subgraph "PROD Account"
         direction LR
-        subgraph Root User
-            C2(AWS Root User) --> D2{MFA Device: 60943}
-            D2 --> E2(Smartphone App)
-        end
-        C2 --> F2(Budget: ฿ $)
-        C2 --> G2(Alarm)
-        H2(IAM)
-        H2 --> I2(IAMADMIN)
-        G2 --> J2{Locked}
+        C_Res(EC2, S3, RDS)
     end
-
-    B --> C1
-    B --> C2
 ```
