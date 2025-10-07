@@ -78,3 +78,39 @@ As a best practice, avoid using the root user for daily operations. Instead, cre
 Once the setup is complete, the same process will be repeated to create a **Production account**.
 
 This structure will serve as the foundation for the rest of the course.
+
+```mermaid
+graph LR
+    subgraph You
+        A[You] --> B(Create/Manage AWS Accounts)
+    end
+
+    subgraph AWS Account 1: GENERAL (MANAGEMENT)
+        direction LR
+        subgraph Root User
+            C1(AWS Root User) --> D1{MFA Device: 60943}
+            D1 --> E1(Smartphone App)
+        end
+        C1 --> F1(Budget: ฿ $)
+        C1 --> G1(Alarm)
+        H1(IAM)
+        H1 --> I1(IAMADMIN)
+        G1 --> J1{Locked}
+    end
+
+    subgraph AWS Account 2: PRODUCTION
+        direction LR
+        subgraph Root User
+            C2(AWS Root User) --> D2{MFA Device: 60943}
+            D2 --> E2(Smartphone App)
+        end
+        C2 --> F2(Budget: ฿ $)
+        C2 --> G2(Alarm)
+        H2(IAM)
+        H2 --> I2(IAMADMIN)
+        G2 --> J2{Locked}
+    end
+
+    B --> C1
+    B --> C2
+```
