@@ -64,3 +64,17 @@ graph TD
     style N fill:#eee,stroke:#333,stroke-width:2px
     style O fill:#eee,stroke:#333,stroke-width:2px
 ```
+
+### First AWS Account
+
+When an AWS account is created, a **root user** is automatically generated. This root user has **full administrative control** over the entire account.
+
+After creating the account, it is essential to **secure the root user** by enabling **Multi-Factor Authentication (MFA)**. MFA adds an extra layer of protection by requiring a time-based verification code (from a physical or virtual device) in addition to the standard username and password.
+
+You should also **configure a budget** to monitor and control potential costs. This helps prevent unexpected charges from running services or misconfigurations.
+
+As a best practice, avoid using the root user for daily operations. Instead, create an **IAM identity**—for example, an **IAM Admin user**—with the necessary administrative permissions. This IAM user will be used throughout the course.
+
+Once the setup is complete, the same process will be repeated to create a **Production account**.
+
+This structure will serve as the foundation for the rest of the course.
