@@ -112,3 +112,14 @@ graph LR
     A --> D
     A --> E
 ```
+
+### Gmail being Awesome
+
+You don’t need to actually create new Gmail accounts — Gmail supports aliases that let you create effectively unlimited unique addresses that all deliver to one inbox.
+
+If your address is alice@gmail.com, any email to alice+shopping@gmail.com, alice+github@gmail.com, alice+newsletters@gmail.com will arrive in alice@gmail.com. Use whatever tag you like after the +.
+
+Banking information:
+
+- pritom+banking@gmail.com
+- pritom+jobapps+companyA@gmail.com
