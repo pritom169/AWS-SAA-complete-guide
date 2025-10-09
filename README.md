@@ -236,3 +236,7 @@ IAM let's you create three different types of identity object. They have three d
 - IAM Users
 - IAM Group
 - IAM Role
+
+- IAM users are generally used when an individual entity (individual person or application) needs access to something.
+
+- IAM roles are generally used when you want to grant access to a uncertain number of entities. If you want every EC2 instances in your account to access the Simple Storage service, you create the role.
