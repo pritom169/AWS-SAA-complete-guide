@@ -128,27 +128,41 @@ Banking information:
 
 ```mermaid
 graph TD
-    subgraph Secure Login (Julie)
-        A[User: Julie] -->|Knows: Username & Password| B(AWS Login)
-        C[Has: MFA Device/App] -->|Generates Code| B
-        B -->|Successful Login| D(AWS Account Root User)
-        D --> E(General Account - AWS Services)
-    end
+    A[Julie's Account<br/>julie@cats.com] -->|Static Username<br/>+ Infrequently<br/>Changing Password| B[Single Factor<br/>Authentication]
 
-    subgraph Insecure/Attack Scenario
-        F[Attacker: Pennywise/Spy] -->|Obtains: Username & Password| G(Attempted Login)
-        G -->|No MFA / Aged Code| H(Compromised AWS Account)
-    end
+    B -->|WITHOUT MFA<br/>VULNERABLE| C[🔓 Account Root User<br/>Full AWS Access]
 
-    style A fill:#D0E7FF,stroke:#333,stroke-width:2px
-    style C fill:#D0E7FF,stroke:#333,stroke-width:2px
-    style F fill:#FFD0D0,stroke:#333,stroke-width:2px
-    style H fill:#FF9999,stroke:#333,stroke-width:2px
-    style D fill:#C0E0C0,stroke:#333,stroke-width:2px
-    style E fill:#C0E0C0,stroke:#333,stroke-width:2px
+    C -->|Attacker Path| D[Account Compromise]
 
-    click A "User needs both factors for secure access"
-    click C "MFA provides a dynamic, time-sensitive code"
-    click F "Attackers use social engineering or espionage to get credentials"
-    click H "Lack of MFA leads to account compromise"
+    D -->|Unauthorized Access| E["AWS Services<br/>(All General Account<br/>Access)"]
+
+    A2[Julie's Account<br/>julie@cats.com] -->|Static Username<br/>+ Password<br/>+ MFA Code| F[Multi-Factor<br/>Authentication]
+
+    F -->|WITH MFA<br/>PROTECTED| G[🔒 Account Root User<br/>Full AWS Access]
+
+    G -->|Authorized Access Only| H["AWS Services<br/>(General Account<br/>+ Management)"]
+
+    I["⚠️ Attack Vectors"]
+    I -->|"1. Espionage"| J["Attempt credential theft<br/>via social engineering"]
+    I -->|"2. No Code/Aged Code"| K["Brute force attacks<br/>Credential stuffing<br/>No protection"]
+    I -->|"3. Malicious Actor<br/>with Hacker Icon"| L["Attempts unauthorized<br/>access and exploitation"]
+
+    J -.->|"Without MFA: SUCCESS"| D
+    K -.->|"Without MFA: SUCCESS"| D
+    L -.->|"Without MFA: SUCCESS"| D
+
+    J -.->|"With MFA: BLOCKED"| G
+    K -.->|"With MFA: BLOCKED"| G
+    L -.->|"With MFA: BLOCKED"| G
+
+    style B fill:#ff6b6b
+    style C fill:#ff6b6b
+    style D fill:#ff4444
+    style F fill:#51cf66
+    style G fill:#51cf66
+    style H fill:#51cf66
+    style I fill:#ffd700
+    style J fill:#ffd700
+    style K fill:#ffd700
+    style L fill:#ffd700
 ```
