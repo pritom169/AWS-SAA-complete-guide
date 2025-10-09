@@ -128,41 +128,42 @@ Banking information:
 
 ```mermaid
 graph TD
-    A[Julie's Account<br/>julie@cats.com] -->|Static Username<br/>+ Infrequently<br/>Changing Password| B[Single Factor<br/>Authentication]
+    A["👩 Julie<br/>julie@cats.com"] -->|Static Username<br/>+ Infrequently<br/>Changing Password| B["ONE FACTOR<br/>Something Julie<br/>KNOWS"]
 
-    B -->|WITHOUT MFA<br/>VULNERABLE| C[🔓 Account Root User<br/>Full AWS Access]
+    B -->|WITHOUT MFA| C["🔐 ACCOUNT ROOT USER<br/>(of this account)"]
 
-    C -->|Attacker Path| D[Account Compromise]
+    C -->|Can Access| D["☁️ AWS<br/>GENERAL ACCOUNT<br/>AWS SERVICES"]
 
-    D -->|Unauthorized Access| E["AWS Services<br/>(All General Account<br/>Access)"]
+    E["🔴 NO CODE or AGED CODE<br/>VULNERABLE"] -->|Brute Force<br/>Credential Stuffing| F["⚠️ Attacker"]
 
-    A2[Julie's Account<br/>julie@cats.com] -->|Static Username<br/>+ Password<br/>+ MFA Code| F[Multi-Factor<br/>Authentication]
+    F -->|Can Steal<br/>Username & Password| G["📌 Gains Access<br/>to Root User"]
 
-    F -->|WITH MFA<br/>PROTECTED| G[🔒 Account Root User<br/>Full AWS Access]
+    G -->|Full Control| D
 
-    G -->|Authorized Access Only| H["AWS Services<br/>(General Account<br/>+ Management)"]
+    A2["👩 Julie<br/>julie@cats.com"] -->|Static Username<br/>+ Password<br/>+ MFA Code| H["TWO FACTORS<br/>Something Julie<br/>KNOWS + Something<br/>Julie HAS"]
 
-    I["⚠️ Attack Vectors"]
-    I -->|"1. Espionage"| J["Attempt credential theft<br/>via social engineering"]
-    I -->|"2. No Code/Aged Code"| K["Brute force attacks<br/>Credential stuffing<br/>No protection"]
-    I -->|"3. Malicious Actor<br/>with Hacker Icon"| L["Attempts unauthorized<br/>access and exploitation"]
+    H -->|WITH MFA| I["🔒 ACCOUNT ROOT USER<br/>(Protected)"]
 
-    J -.->|"Without MFA: SUCCESS"| D
-    K -.->|"Without MFA: SUCCESS"| D
-    L -.->|"Without MFA: SUCCESS"| D
+    I -->|Can Access| J["☁️ AWS<br/>GENERAL ACCOUNT<br/>AWS SERVICES"]
 
-    J -.->|"With MFA: BLOCKED"| G
-    K -.->|"With MFA: BLOCKED"| G
-    L -.->|"With MFA: BLOCKED"| G
+    K["🟢 MFA DEVICE/APP<br/>Generates Code<br/>Every 30s"] -->|Code changes<br/>constantly| L["🛡️ Attacker BLOCKED"]
 
-    style B fill:#ff6b6b
-    style C fill:#ff6b6b
-    style D fill:#ff4444
-    style F fill:#51cf66
-    style G fill:#51cf66
-    style H fill:#51cf66
-    style I fill:#ffd700
-    style J fill:#ffd700
-    style K fill:#ffd700
-    style L fill:#ffd700
+    L -->|Cannot Access<br/>Even with Password| I
+
+    M["🎭 ESPIONAGE or<br/>SOCIAL ENGINEERING"] -->|"FAILS with MFA ❌"| I
+
+    style B fill:#ff6b6b,stroke:#cc0000,color:#000
+    style C fill:#ff6b6b,stroke:#cc0000,color:#000
+    style E fill:#ff6b6b,stroke:#cc0000,color:#000
+    style F fill:#ff6b6b,stroke:#cc0000,color:#000
+    style G fill:#ff6b6b,stroke:#cc0000,color:#000
+    style D fill:#ff6b6b,stroke:#cc0000,color:#000
+
+    style H fill:#51cf66,stroke:#2d8a3d,color:#000
+    style I fill:#51cf66,stroke:#2d8a3d,color:#000
+    style J fill:#51cf66,stroke:#2d8a3d,color:#000
+    style K fill:#51cf66,stroke:#2d8a3d,color:#000
+    style L fill:#51cf66,stroke:#2d8a3d,color:#000
+
+    style M fill:#ffd700,stroke:#ff9800,color:#000
 ```
