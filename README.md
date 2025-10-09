@@ -173,3 +173,11 @@ graph TD
 
     style M fill:#ffd700,stroke:#ff9800,color:#000
 ```
+
+Now, to secure your account:
+
+- Navigate to Console Home.
+- Click your account name in the top-right corner.
+- Select Security Credentials.
+- You’ll be directed to the Identity and Access Management (IAM) dashboard, where all security credentials can be managed.
+- If Multi-Factor Authentication (MFA) is not yet enabled, activate it under the Multi-Factor Authentication (MFA) section.
