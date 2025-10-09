@@ -216,3 +216,23 @@ Now produce the same process for Production Account
 - Add a BUDGET to PRODUCTION Account (Follow the procedure mentioned above)
 - Enable IAM User & Role Access to billing
 - Add account contacts
+
+## IAM Basics
+
+When we create an AWS account, the root account automatically gets created.
+
+In a real world scenario different users, groups or apps needs to have some access. You generally need to restrict the access. In shorts words, you want to give only the access they need to have to perform a task and nothing else. It it also known as Least Privileged Access.
+
+Only having a single identity is also problematic. As the account root user can not be restricted, if the credentials are leaked, all services across all regions are leaked.
+
+Every AWS account comes with it's own copy of IAM, it's own database. IAM a resilient service. Any IAM data is always secure across all the AWS region.
+
+Your own AWS account has one instance of IAM which is different from every other instance. Your AWS Account fully trust the instance of your IAM. IAM root user can do anything in IAM.
+
+So IAM as a service, can do as much as the root user. Inside IAM you can create different identities. IAM can allow these identities to do certain things.
+
+IAM let's you create three different types of identity object. They have three different roles.
+
+- IAM Users
+- IAM Group
+- IAM Role
