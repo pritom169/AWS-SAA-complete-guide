@@ -181,3 +181,13 @@ Now, to secure your account:
 - Select Security Credentials.
 - You’ll be directed to the Identity and Access Management (IAM) dashboard, where all security credentials can be managed.
 - If Multi-Factor Authentication (MFA) is not yet enabled, activate it under the Multi-Factor Authentication (MFA) section.
+
+### Managing AWS Budgets
+
+To effectively monitor and control AWS spending, budget configuration is required. After signing in to the AWS Management Console, click your **account name** in the top-right corner and select **Billing and Cost Management** to access the **AWS Billing Console**.
+
+In the Billing Console, use the left-hand navigation panel to go to **Billing Preferences**. Within this section, enable the following options to enhance visibility and cost tracking:
+
+- **PDF invoice delivery by email**
+- **AWS Free Tier usage alerts**
+- **Detailed billing reports**
