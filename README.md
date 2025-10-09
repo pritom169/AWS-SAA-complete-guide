@@ -246,3 +246,9 @@ IAM let's you create three different types of identity object. They have three d
 IAM policies are structured documents that define permissions by explicitly allowing or denying access to specific AWS services or actions.
 
 However, policies are inactive on their own — they only take effect when attached to an IAM **User**, **Group**, or **Role**.
+
+On a fundamental level, IAM has three roles:
+
+- It is a **identity provider**. In other words, it manages identities.
+- It also **authenticate** those identities. So when anyone attempts to make a request to AWS, they are know as security principle. They also need to prove their identity.
+- Assuming I have proved my identities. Then IAM **authorizes** me to access the resources. I am allowed or denied access to certain things. This is based on policies associated with the identity I have authenticated with.
