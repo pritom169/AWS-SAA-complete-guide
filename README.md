@@ -252,3 +252,11 @@ On a fundamental level, IAM has three roles:
 - It is a **identity provider**. In other words, it manages identities.
 - It also **authenticate** those identities. So when anyone attempts to make a request to AWS, they are know as security principle. They also need to prove their identity.
 - Assuming I have proved my identities. Then IAM **authorizes** me to access the resources. I am allowed or denied access to certain things. This is based on policies associated with the identity I have authenticated with.
+
+Let's finalize the theory part with more details:
+
+- IAM comes with no cost
+- IAM is a global service. It is globally resilient
+- IAM only controls the identities (IAM users or roles you created on IAM) can do. It allows or denies those identities to do things
+- IAM does not allow a direct control over an external users. IAM only control the local identities in your account.
+- IAM let's you use Identity Federation and MFA (Multi Factor Authentication)
