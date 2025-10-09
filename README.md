@@ -126,6 +126,12 @@ Banking information:
 
 ## Securing an AWS Account
 
+Securing an AWS account requires a multi-layered approach that protects your root account and all user accounts from unauthorized access.
+
+Your AWS root account is the most critical asset. It has unrestricted access to all AWS services and resources.
+
+MFA adds an essential second layer of security beyond passwords. Without MFA, a static username and password alone provide insufficient protection—this is considered single-factor authentication.
+
 ```mermaid
 graph TD
     A["👩 Julie<br/>julie@cats.com"] -->|Static Username<br/>+ Infrequently<br/>Changing Password| B["ONE FACTOR<br/>Something Julie<br/>KNOWS"]
