@@ -204,3 +204,15 @@ To create a budget in AWS:
 6. Add one or more **recipient email addresses** to receive budget alerts.
 7. Review all configuration details carefully.
 8. Click **Submit** to finalize and activate your budget.
+
+### Time to practice
+
+Now produce the same process for Production Account
+
+- New email for **PRODUCTION** AWS account
+- Use the Gmail trick
+- Create the **PRODUCTION** AWS Account
+- Add MFA to Account Root User
+- Add a BUDGET to PRODUCTION Account (Follow the procedure mentioned above)
+- Enable IAM User & Role Access to billing
+- Add account contacts
