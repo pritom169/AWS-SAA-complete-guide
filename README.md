@@ -123,3 +123,32 @@ Banking information:
 
 - pritom+banking@gmail.com
 - pritom+jobapps+companyA@gmail.com
+
+## Securing an AWS Account
+
+```mermaid
+graph TD
+    subgraph Secure Login (Julie)
+        A[User: Julie] -->|Knows: Username & Password| B(AWS Login)
+        C[Has: MFA Device/App] -->|Generates Code| B
+        B -->|Successful Login| D(AWS Account Root User)
+        D --> E(General Account - AWS Services)
+    end
+
+    subgraph Insecure/Attack Scenario
+        F[Attacker: Pennywise/Spy] -->|Obtains: Username & Password| G(Attempted Login)
+        G -->|No MFA / Aged Code| H(Compromised AWS Account)
+    end
+
+    style A fill:#D0E7FF,stroke:#333,stroke-width:2px
+    style C fill:#D0E7FF,stroke:#333,stroke-width:2px
+    style F fill:#FFD0D0,stroke:#333,stroke-width:2px
+    style H fill:#FF9999,stroke:#333,stroke-width:2px
+    style D fill:#C0E0C0,stroke:#333,stroke-width:2px
+    style E fill:#C0E0C0,stroke:#333,stroke-width:2px
+
+    click A "User needs both factors for secure access"
+    click C "MFA provides a dynamic, time-sensitive code"
+    click F "Attackers use social engineering or espionage to get credentials"
+    click H "Lack of MFA leads to account compromise"
+```
