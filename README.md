@@ -191,3 +191,16 @@ In the Billing Console, use the left-hand navigation panel to go to **Billing Pr
 - **PDF invoice delivery by email**
 - **AWS Free Tier usage alerts**
 - **Detailed billing reports**
+
+#### Creating a Budget
+
+To create a budget in AWS:
+
+1. Navigate to the **Budgets** section in the AWS Billing Console.
+2. Click **Create a Budget**.
+3. On the first screen, select **Monthly Budget**.
+4. Enter your desired **budget amount** on the next screen.
+5. Configure **alert thresholds** by setting percentage levels at which notifications should be sent.
+6. Add one or more **recipient email addresses** to receive budget alerts.
+7. Review all configuration details carefully.
+8. Click **Submit** to finalize and activate your budget.
